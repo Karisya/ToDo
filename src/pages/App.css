@@ -1,0 +1,272 @@
+body {
+  background-color: #17181d;
+  color: #e6e2e0;
+  font-weight: 700;
+}
+
+ul {
+  list-style: none;
+}
+
+ul div div {
+  cursor: pointer;
+}
+
+a {
+  color: #fff;
+
+}
+
+.container {
+  margin: 0 auto;
+  padding: 40px;
+  max-width: 400px;
+  /* background-color: #354b2a; */
+  border-radius: 15px;
+  text-align: center;
+}
+
+.App__container {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.list {
+  margin: 0 auto;
+  background-color: #2e2f26;
+  border-radius: 15px;
+  max-width: 500px;
+}
+
+.list__content {
+  padding: 20px;
+}
+
+.list__input-container input {
+  border: none;
+  padding: 0 10px;
+  height: 40px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.list__input-container button {
+  border: none;
+  background: #888176;
+  color: #13140f;
+  padding: 0 10px;
+  height: 40px;
+  border-radius: 0 5px 5px 0;
+}
+
+.todo-item {
+  min-height: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: #bdb7ab;
+  padding: 10px 20px;
+  border-radius: 15px;
+  color: #151613;
+  font-weight: 600;
+}
+
+.todo-item button {
+  border: 0;
+  padding: 0;
+  background-color: 0;
+  color: none;
+  border-radius: 15px;
+}
+
+.todo-item__btn-container {
+  display: flex;
+}
+
+.todo-item__icons {
+  display: flex;
+  gap: 20px;
+}
+
+.todo-item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.iconDelete {
+  width: 20px;
+}
+
+.iconEdit {
+  width: 20px;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.noComplete {
+  max-width: 80%;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.editHolder {
+  width: 100%;
+  display: flex;
+}
+
+.editInput {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  padding: 0 10px;
+  height: 30px;
+  align-items: center;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.editButton {
+  min-width: 100px;
+  border: none;
+  background: #888176;
+  color: #13140f;
+  padding: 0 10px;
+  height: 30px;
+  border-radius: 0 5px 5px 0;
+}
+
+/*----------Registration------------*/
+
+.registration {
+  padding: 50px;
+}
+
+input {
+  height: 30px;
+  /* background-color: #fff; */
+  border: 1px #13140f solid;
+  padding: 0 10px;
+  border-radius: 10px;
+  background-color: #252c26;
+  color: #e6e2e0;
+  /* margin-bottom: 20px; */
+}
+
+input {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 50px #4a554a !important;
+  /* Цвет фона */
+  -webkit-text-fill-color: #fff !important;
+  /* цвет текста */
+  color: #fff !important;
+  /* цвет текста */
+}
+
+label {
+  display: flex;
+  min-width: 200px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 15px;
+  background-color: #76e176;
+  border: 1px solid #13140f;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+  /* margin-bottom: 10px; */
+}
+
+.registration__input-item {
+  display: flex;
+}
+
+.registration__path {
+  text-align: center;
+}
+
+.registration__path a {
+  color: #fff;
+}
+
+.registration__error {
+  text-align: center;
+  color: #f82c2c;
+  margin-bottom: 20px;
+}
+
+.registration__input-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.input-item__holder {
+  gap: 10px;
+  display: flex;
+}
+
+.input-item__holder label {}
+
+.input-item__gender {
+  display: flex;
+  align-items: center;
+  min-width: 10%;
+
+}
+
+input [type='radio']:after {
+  width: 15px;
+  /* display: block; */
+  height: 15px;
+  border-radius: 15px;
+  align-items: center;
+  /* top: -2px; */
+  /* left: -1px; */
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 10px;
+  height: 10px;
+  border-radius: 15px;
+  top: 7px;
+  /* left: -1px; */
+  position: relative;
+  background-color: #76e176;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+/*---------------------------------------*/
+
+.login {
+  padding: 60px 0 0 0;
+}
+
+.login__input-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.login__link {
+  color: #76e176;
+  text-align: center;
+}
+
+/* --------------------------- */
+
+.logOut {
+  text-align: center;
+}
