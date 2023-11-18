@@ -1,4 +1,4 @@
-export const TodoList = ({ todos, deleteTodo, completed, edit, setEdit, submitEdits, setValue}) => {
+export const TodoList = ({ todos, deleteTodo, completed, edit, setEdit, submitEdits, setValue }) => {
     return (
         <div className="list__todo-container" >
             <ul>{todos.map((i, index) =>
@@ -17,8 +17,8 @@ export const TodoList = ({ todos, deleteTodo, completed, edit, setEdit, submitEd
                         <div >
                             {i.key === edit ? '' : (
                                 <div className='todo-item__icons'>
-                                    <div onClick={() => setEdit(i.key)}> <img className="iconEdit" src={require('./img/pencil.svg').default} /></div>
-                                    <img className="iconDelete" onClick={() => deleteTodo(index)} src={require('./img/bin.svg').default} />
+                                    <div onClick={() => setEdit(i.key)}> <img className="iconEdit" src={require('../img/pencil.svg').default} /></div>
+                                    <img className="iconDelete" onClick={() => deleteTodo(i.key)} src={require('../img/bin.svg').default} />
                                 </div>
                             )}
                         </div>
