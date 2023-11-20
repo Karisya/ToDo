@@ -3,8 +3,14 @@ import { TodoList } from "./TodoList"
 import { v4 as uuidv4 } from 'uuid';
 import './App.css'
 import { TodoInput } from "./TodoInput";
+// import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 export const MainList = () => {
+
+    // const dispatch = useDispatch();
+    // const count = useSelector(state => state.counter.count); // Получение состояния через useSelector
+
+
     const [todo, setToDo] = useState('')
     const [todos, setToDos] = useState([])
     const [edit, setEdit] = useState(null)
@@ -13,7 +19,7 @@ export const MainList = () => {
         setToDo(event.target.value)
     }
     const deleteToDo = (itemIndex) => {
-        const newList = todos.filter((i, index) => itemIndex !== index)
+        const newList = todos.filter(i => itemIndex !== i.key)
         setToDos(newList)
     }
     const handleSubmit = (e) => {
@@ -63,7 +69,7 @@ export const MainList = () => {
                     </div>
                 </div>
             </div>
-            <div className="logOut" ><Link to='/registrationForm.js' onClick={localStorage.removeItem("token")}>Log out</Link></div>
+            <div className="logOut" ><Link to='/registrationForm' onClick={localStorage.removeItem("token")}>Log out</Link></div>
         </div>
     )
 }
