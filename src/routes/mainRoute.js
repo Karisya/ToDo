@@ -8,9 +8,9 @@ export const MainRoute = () => {
         <BrowserRouter>
             <Routes>
                 <Route index element={<Registration />} />
-                <Route path='/registrationForm.js' element={<Registration />} />
-                <Route path='/logIn.js' element={<LogIn />} />
-                <Route path='/mainList.js' element={<MainList />} />
+                <Route path='/registrationForm' element={<Registration />} />
+                <Route path='/logIn' element={<LogIn />} />
+                <Route path='/mainList' element={<MainList />} />
             </Routes>
             <Outlet><div></div></Outlet>
         </BrowserRouter>

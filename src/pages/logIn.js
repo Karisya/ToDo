@@ -63,7 +63,7 @@ export const LogIn = () => {
                 </Formik>
             </div>
             <div className='login__link'>
-                Don`t have an account?<Link to='/registrationForm.js'>Sign up!</Link>
+                Don`t have an account?<Link to='/registrationForm'>Sign up!</Link>
             </div>
         </div>
     )

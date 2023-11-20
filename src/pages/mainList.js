@@ -3,8 +3,8 @@ import { TodoList } from "./TodoList"
 import { v4 as uuidv4 } from 'uuid';
 import './App.css'
 import { TodoInput } from "./TodoInput";
-import { useSelector, useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom'
+// import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom'
 export const MainList = () => {
 
     // const dispatch = useDispatch();
@@ -69,7 +69,7 @@ export const MainList = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className="logOut" ><Link to='/registrationForm.js' onClick={localStorage.removeItem("token")}>Log out</Link></div> */}
+            <div className="logOut" ><Link to='/registrationForm' onClick={localStorage.removeItem("token")}>Log out</Link></div>
         </div>
     )
 }

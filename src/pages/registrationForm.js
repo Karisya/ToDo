@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,6 +12,26 @@ const validationSchema = yup.object().shape({
 })
 
 export const Registration = () => {
+
+    const sendPostRequest = async (values) => {
+        try {
+            const response = await fetch("https://todo-redev.herokuapp.com/api/users/register",
+                {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(values)
+                });
+            const token = await response.json();
+            localStorage.setItem('token', token.token)
+            navigate('/mainList')
+        } catch (error) {
+            console.log("error: ", error);
+        }
+    }
+
     const navigate = useNavigate();
     return (
         <div className='registration'>
@@ -20,26 +40,7 @@ export const Registration = () => {
                     initialValues={{ username: '', email: '', password: '', gender: '', age: '' }}
                     validationSchema={validationSchema}
                     onSubmit={(values) => {
-                        let token = '';
-                        const sendPostRequest = async () => {
-                            try {
-                                const response = await fetch("https://todo-redev.herokuapp.com/api/users/register",
-                                    {
-                                        method: "POST",
-                                        headers: {
-                                            Accept: "application/json",
-                                            "Content-Type": "application/json"
-                                        },
-                                        body: JSON.stringify(values)
-                                    });
-                                token = await response.json();
-                                localStorage.setItem('token', token.token)
-                                navigate('/mainList.js')
-                            } catch (error) {
-                                console.log("error: ", error);
-                            }
-                        }
-                        sendPostRequest()
+                        sendPostRequest(values)
                     }}>
                     <Form className='registration__input-holder'>
                         <div className='registration__input-item'>
@@ -88,7 +89,7 @@ export const Registration = () => {
                 </Formik>
             </div>
             <div className='registration__path'>
-                Alredy have an account? <Link className='registration__logIn' to='/logIn.js'>Log in!</Link>
+                Alredy have an account? <Link className='registration__logIn' to='/logIn'>Log in!</Link>
             </div>
         </div>
     )
