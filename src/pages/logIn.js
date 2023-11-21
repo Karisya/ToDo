@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import * as yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { Link, useNavigate } from 'react-router-dom';
@@ -33,9 +33,9 @@ export const LogIn = () => {
                                     });
                                 const data = await response.json();
                                 if (token.token === localStorage.getItem('token'))
-                                    navigate('/mainList.js')
+                                    navigate('/mainList')
                                 else {
-                                    navigate('/registrationForm.js')
+                                    navigate('/registrationForm')
                                 }
                             } catch (error) {
                                 console.log("error: ", error);
