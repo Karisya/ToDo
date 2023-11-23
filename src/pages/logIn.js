@@ -17,31 +17,28 @@ export const LogIn = () => {
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     validationSchema={validationSchema}
-                    onSubmit={(values) => {
-                        let token = ''
+                    onSubmit={async (values) => {
                         const login = { email: values.email, password: values.password }
-                        const cheakLogin = async () => {
-                            try {
-                                const response = await fetch('https://todo-redev.herokuapp.com/api/auth/login',
-                                    {
-                                        method: "POST",
-                                        headers: {
-                                            Accept: "application/json",
-                                            "Content-Type": "application/json"
-                                        },
-                                        body: JSON.stringify(login)
-                                    });
-                                const data = await response.json();
-                                if (token.token === localStorage.getItem('token'))
-                                    navigate('/mainList')
-                                else {
-                                    navigate('/registrationForm')
-                                }
-                            } catch (error) {
-                                console.log("error: ", error);
+
+                        try {
+                            const response = await fetch('https://todo-redev.herokuapp.com/api/auth/login',
+                                {
+                                    method: "POST",
+                                    headers: {
+                                        Accept: "application/json",
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify(login)
+                                });
+                            let data = await response;
+                            if (localStorage.getItem('token'))
+                                navigate('/mainList')
+                            else {
+                                navigate('/registrationForm')
                             }
+                        } catch (error) {
+                            console.log("error: ", error);
                         }
-                        cheakLogin()
                     }}>
                     <Form className='login__input-holder'>
                         <div className='login__input-item'>
