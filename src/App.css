@@ -1,0 +1,78 @@
+body {
+  background-color: #0f1009;
+  color: #fff9ed;
+}
+
+ul {
+  padding: 20px;
+}
+
+input {
+  padding: 10px 20px;
+  background-color: #0f1009;
+  border: 2px solid #e76102;
+  border-radius: 10px 0 0 10px;
+  color: inherit;
+}
+
+button {
+  background-color: #e76102;
+  color: inherit;
+  text-transform: uppercase;
+  border: 2px solid #e76102;
+}
+
+.App__container {
+  padding: 30px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.editHolder {
+  display: flex;
+}
+
+.editInput {
+  padding: 5px 10px;
+}
+
+.editButton {
+  padding: 5px 10px;
+  border-radius: 0 10px 10px 0;
+}
+
+
+.list__input-container input :focus {
+  border: 2px solid #e76102;
+}
+
+.list__input-container button {
+  padding: 10px 20px;
+
+  border-radius: 0 10px 10px 0;
+}
+
+.list__content {
+  text-align: center;
+}
+
+
+
+.complete {
+  text-decoration: line-through;
+  color: #e76102;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-item__icons {
+  /* background-color: #e76102; */
+  color: #e76102;
+}
+
+.todo-item:not(:last-child) {
+  margin-bottom: 20px;
+}
