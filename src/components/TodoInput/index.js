@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, sendTodo } from '../../redux/actions/todoActions';
+import { sendTodo } from '../../redux/actions/todoActions';
+import { addTodo } from '../../redux/actions/todosActions';
 
 export const TodoInput = () => {
     const dispatch = useDispatch();
-    const todo = useSelector(state => state.list.todo)
+    const todo = useSelector(state => state.todo.todo)
     const handleSubmit = (e) => {
         e.preventDefault();
         if (todo !== '') {

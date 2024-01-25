@@ -1,17 +1,28 @@
+
 import {
     legacy_createStore as createStore,
     combineReducers,
-    // applyMiddleware
 } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-// import todoInputReducer from './reducers/todoInputReducer'
-import todoReducers from './reducers/todoReducers'
+import todoReducer from './reducers/todoReducers'
+import todosReducer from './reducers/todosReducers'
+import editReducer from './reducers/editReducers'
+import editingTextReducer from './reducers/editingTextReducers'
 
+export const SEND = 'SEND';
+export const ADD = 'ADD';
+export const DELETE = 'DELETE';
+export const COMPLETED = 'COMPLETED';
+export const SUBMITEDITS = 'SUBMITEDITS';
+export const EDIT = 'EDIT';
+export const VALUE = 'VALUE';
 
 const rootReducer = combineReducers({
-    list: todoReducers,
-    //example: exampleReducer, (пример, что можно добавлять еще редьюсеры)
+    todo: todoReducer,
+    todos: todosReducer,
+    edit: editReducer,
+    editingText: editingTextReducer,
 })
 
 const store = createStore(
