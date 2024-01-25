@@ -1,14 +1,25 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { completed, deleteTodo, submitEdits } from '../../redux/actions/todosActions'
-import { setValue } from '../../redux/actions/editingTextActions'
-import { setEdit } from '../../redux/actions/editActions'
+import { completed, deleteTodo, submitEdits } from '../../redux/slices/todosSlice'
+import { setValue } from '../../redux/slices/editingTextSlice'
+import { setEdit } from '../../redux/slices/editSlice'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 export const TodoList = () => {
     const dispatch = useDispatch();
-    const todos = useSelector(state => state.todos.todos)
-    const edit = useSelector(state => state.edit.edit)
-    const editingText = useSelector(state => state.editingText.editingText)
+    const todos = useSelector(state => state.todos)
+    const edit = useSelector(state => state.edit)
+    const editingText = useSelector(state => state.editingText)
+
+    console.log(todos)
+    const handleEdit = (key) => {
+        dispatch(setEdit(key));
+        dispatch(setValue(''));
+    };
+
+    const handleSaveEdit = (key) => {
+        dispatch(submitEdits({ key, text: editingText }));
+        dispatch(setEdit(null));
+    };
 
     return (
         <div className="list__todo-container" >
@@ -18,7 +29,7 @@ export const TodoList = () => {
                         edit === i.key ?
                             (<div className='editHolder'>
                                 <input className='editInput' value={editingText} type='text' onChange={(e) => dispatch(setValue(e.target.value))} />
-                                <button className='editButton' type='button' onClick={() => dispatch(submitEdits(i.key, editingText))} >edit</button>
+                                <button className='editButton' type='button' onClick={() => handleSaveEdit(i.key)} >edit</button>
                             </div>) :
                             (
                                 <div key={i.key} className={i.isCompleted ? 'complete' : 'noComplete'} onClick={() => dispatch(completed(i.key))}>{i.text}</div>)
@@ -28,7 +39,7 @@ export const TodoList = () => {
                         <div >
                             {i.key !== edit && (
                                 <div className='todo-item__icons'>
-                                    <EditOutlined style={{ fontSize: '20px' }} onClick={() => dispatch(setEdit(i.key))} />
+                                    <EditOutlined style={{ fontSize: '20px' }} onClick={() => handleEdit(i.key)} />
                                     <DeleteOutlined style={{ fontSize: '20px' }} onClick={() => dispatch(deleteTodo(i.key))} />
                                 </div>
                             )}

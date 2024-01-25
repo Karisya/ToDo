@@ -1,33 +1,16 @@
+import { configureStore } from '@reduxjs/toolkit'
+import todoSlice from './slices/todoSlice'
+import todosSlice from './slices/todosSlice'
+import editSlice from './slices/editSlice'
+import editingTextSlice from './slices/editingTextSlice'
 
-import {
-    legacy_createStore as createStore,
-    combineReducers,
-} from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-
-import todoReducer from './reducers/todoReducers'
-import todosReducer from './reducers/todosReducers'
-import editReducer from './reducers/editReducers'
-import editingTextReducer from './reducers/editingTextReducers'
-
-export const SEND = 'SEND';
-export const ADD = 'ADD';
-export const DELETE = 'DELETE';
-export const COMPLETED = 'COMPLETED';
-export const SUBMITEDITS = 'SUBMITEDITS';
-export const EDIT = 'EDIT';
-export const VALUE = 'VALUE';
-
-const rootReducer = combineReducers({
-    todo: todoReducer,
-    todos: todosReducer,
-    edit: editReducer,
-    editingText: editingTextReducer,
+const store = configureStore({
+    reducer: {
+        todo: todoSlice,
+        todos: todosSlice,
+        edit: editSlice,
+        editingText: editingTextSlice,
+    }
 })
-
-const store = createStore(
-    rootReducer,
-    composeWithDevTools()
-)
 
 export default store
