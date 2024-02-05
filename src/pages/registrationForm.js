@@ -13,25 +13,6 @@ const validationSchema = yup.object().shape({
 
 export const Registration = () => {
 
-    const sendPostRequest = async (values) => {
-        try {
-            const response = await fetch("https://todo-redev.herokuapp.com/api/users/register",
-                {
-                    method: "POST",
-                    headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(values)
-                });
-            const token = await response.json();
-            localStorage.setItem('token', token.token)
-            navigate('/mainList')
-        } catch (error) {
-            console.log("error: ", error);
-        }
-    }
-
     const navigate = useNavigate();
     return (
         <div className='registration'>
@@ -40,7 +21,27 @@ export const Registration = () => {
                     initialValues={{ username: '', email: '', password: '', gender: '', age: '' }}
                     validationSchema={validationSchema}
                     onSubmit={(values) => {
-                        sendPostRequest(values)
+                        const sendPostRequest = async () => {
+                            console.log(values)
+                            try {
+                                const responce = await fetch("https://todo-redev.herokuapp.com/api/users/register",
+                                    {
+                                        method: "POST",
+                                        headers: {
+                                            Accept: "application/json",
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify(values)
+                                    });
+                                let token = await responce.json();
+                                console.log(token)
+                                localStorage.setItem("token", token.token)
+                                navigate('/logIn')
+                            } catch (err) {
+                                console.log(err)
+                            }
+                        }
+                        sendPostRequest();
                     }}>
                     <Form className='registration__input-holder'>
                         <div className='registration__input-item'>

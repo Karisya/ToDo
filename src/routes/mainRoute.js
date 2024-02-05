@@ -1,19 +1,23 @@
 import { Registration } from "../pages/registrationForm";
 import { LogIn } from "../pages/logIn";
 import { MainList } from "../pages/mainList";
-import { BrowserRouter, Outlet, Route, Routes, } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
+const PrivateRoute = ({ children }) => {
+    const isAuth = localStorage.getItem('token') ? true : false;
+    return isAuth ? <>{children}</> : <Navigate to="/login" />;
+};
 
 export const MainRoute = () => {
     return (
-        <BrowserRouter>
+        <Router>
             <Routes>
                 <Route index element={<Registration />} />
                 <Route path='/registrationForm' element={<Registration />} />
                 <Route path='/logIn' element={<LogIn />} />
-                <Route path='/mainList' element={<MainList />} />
+                <Route path='/mainList' element={<PrivateRoute><MainList /></PrivateRoute>} />
             </Routes>
-            <Outlet><div></div></Outlet>
-        </BrowserRouter>
+        </Router>
     )
 
 }

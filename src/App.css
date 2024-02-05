@@ -6,6 +6,7 @@ body {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 ul div div {
@@ -31,109 +32,78 @@ a {
   text-align: center;
 }
 
-.list {
+/* .list {
   margin: 0 auto;
   background-color: #2e2f26;
   border-radius: 15px;
   max-width: 500px;
-}
-
-.list__content {
-  padding: 20px;
-}
-
-.list__input-container input {
-  border: none;
-  padding: 0 10px;
+} */
+.list__input-fuild {
+  border-radius: 15px 0 0 15px;
   height: 40px;
-  border: none;
-  border-radius: 5px 0 0 5px;
+
 }
 
-.list__input-container button {
-  border: none;
-  background: #888176;
-  color: #13140f;
-  padding: 0 10px;
+.list__input-button {
   height: 40px;
-  border-radius: 0 5px 5px 0;
+  border-radius: 15px 0 0 15px;
+  background-color: #e76102;
+  color: #fff;
 }
 
-.todo-item {
-  min-height: 50px;
-  align-items: center;
+.App__container {
+  padding: 30px 10px;
   display: flex;
-  justify-content: space-between;
-  background-color: #bdb7ab;
-  padding: 10px 20px;
-  border-radius: 15px;
-  color: #151613;
-  font-weight: 600;
-}
-
-.todo-item button {
-  border: 0;
-  padding: 0;
-  background-color: 0;
-  color: none;
-  border-radius: 15px;
-}
-
-.todo-item__btn-container {
-  display: flex;
-}
-
-.todo-item__icons {
-  display: flex;
-  gap: 20px;
-}
-
-.todo-item:not(:last-child) {
-  margin-bottom: 15px;
-}
-
-.iconDelete {
-  width: 20px;
-}
-
-.iconEdit {
-  width: 20px;
-}
-
-.complete {
-  text-decoration: line-through;
-}
-
-.noComplete {
-  max-width: 80%;
-  word-wrap: break-word;
-  text-align: left;
+  justify-content: center;
 }
 
 .editHolder {
-  width: 100%;
   display: flex;
 }
 
 .editInput {
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  padding: 0 10px;
-  height: 30px;
-  align-items: center;
-  border: none;
-  border-radius: 5px 0 0 5px;
+  border-radius: 15px 0 0 15px;
+  padding: 5px 10px;
 }
 
 .editButton {
-  min-width: 100px;
-  border: none;
-  background: #888176;
-  color: #13140f;
-  padding: 0 10px;
-  height: 30px;
-  border-radius: 0 5px 5px 0;
+  color:#fff;
+  padding: 5px 10px;
+  border-radius: 0 10px 10px 0;
+  background-color: #e76102;
+}
+
+
+.list__input-container input :focus {
+  border: 2px solid #e76102;
+}
+
+.list__input-container button {
+  padding: 10px 20px;
+  border-radius: 0 10px 10px 0;
+}
+
+.list__content {
+  text-align: center;
+}
+
+.complete {
+  text-decoration: line-through;
+  color: #e76102;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-item__icons {
+  /* background-color: #e76102; */
+  color: #e76102;
+}
+
+.todo-item:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 /*----------Registration------------*/
@@ -210,7 +180,6 @@ button {
   display: flex;
 }
 
-.input-item__holder label {}
 
 .input-item__gender {
   display: flex;
